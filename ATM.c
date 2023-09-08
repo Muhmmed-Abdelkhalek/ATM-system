@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * @file           : ATM Bank Management System
- * @author         : Mohamed Abdelkhal
+ * @author         : Mohamed Abdelkhalek
  * @brief          : Contains the functionality of my application
  ******************************************************************************
  */
@@ -12,9 +12,8 @@
 #include <string.h>
 #include <conio.h>
 /* ********************** Includes Section End ********************** */
-struct ATM 
+struct ATM
 {
-    char name[30];
     unsigned int acon;
     unsigned int amount;
 };
@@ -54,7 +53,7 @@ Try_01:
     {
         do
         {
-            Try_02:
+Try_02:
             Design();
             printf("\t Enter Your Choice : ");
             scanf("%i", &cho);
@@ -87,13 +86,13 @@ Try_01:
     }
     else
     {
-        printf("\n\t Your Pin is incorrect");
-        printf("\n\t Try Again\n");
+        printf("\n\t Your Pin is Incorrect");
         if(counter == 3)
         {
-            printf("Sorry, You have three attempys only\n");
+            printf("\n\t Sorry, you have exceeded the number of attempts allowed\n");
             exit(0);
         }
+        printf("\n\t Try Again\n");
         Sleep(500);
         goto Try_01;
     }
@@ -105,10 +104,10 @@ void Design(void)
 {
     printf("\n\n-------- ATM Banking Mangement System --------\n\n");
     printf("\t 1.Create Account\n");
-    printf("\t 2.Deposit Amount\n");
-    printf("\t 3.Withdrawal Amount\n");
-    printf("\t 4.Check Balance\n");
-    printf("\t 5.Exit\n");
+    printf("\t 2.Cash Deposit\n");
+    printf("\t 3.Cash Withdrawal\n");
+    printf("\t 4.Balance Inquiry\n");
+    printf("\t 5.Exit\n\n");
     printf("----------------------------------------------\n");
 }
 void CreAcc(void)
@@ -117,9 +116,13 @@ void CreAcc(void)
     scanf("%d", &(A1.acon));
     printf("\t Enter Your Amount : ");
     scanf("%d", &(A1.amount));
-    /*printf("\t Enter Your Name : ");
-    fflush(0);
-    scanf("%s", A1.name);*/
+    printf("\n\t Please Wait ");
+    for (int i = 0; i < 3; i++)
+    {
+        printf(".");
+        Sleep(250);
+    }
+    printf("\n\t operation compeleted successfully");
 }
 void DepAm(void)
 {
@@ -127,7 +130,14 @@ void DepAm(void)
     printf("\t Enter Your Amount For deposit : ");
     scanf("%d", &Val);
     A1.amount += Val;
-    printf("\t Your money after depositing is equal  : %d\n", A1.amount);
+    printf("\n\t Please Wait ");
+    for (int i = 0; i < 3; i++)
+    {
+        printf(".");
+        Sleep(250);
+    }
+    printf("\n\t operation compeleted successfully\n");
+    printf("\t Your money after depositing is equal : %d\n", A1.amount);
 }
 void Withd(void)
 {
@@ -141,13 +151,25 @@ void Withd(void)
     else
     {
         A1.amount -= Val;
-        printf("\t Your money after withdrawing the amount is equal : %d\n", A1.amount);
+        printf("\t Please wait for your cash");
+        for (int i = 0; i < 3; i++)
+        {
+            printf(".");
+            Sleep(250);
+        }
+        printf("\n4\t Your money after withdrawing the amount is equal : %d\n", A1.amount);
     }
 
 }
 void CheBal(void)
 {
-    printf("\t Your current Balance is equal : %d\n", A1.amount);
+    printf("\n\t Please Wait ");
+    for (int i = 0; i < 3; i++)
+    {
+        printf(".");
+        Sleep(250);
+    }
+    printf("\n\t Your current Balance is equal : %d\n", A1.amount);
 }
 void Exit(void)
 {
