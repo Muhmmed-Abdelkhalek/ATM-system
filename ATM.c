@@ -102,7 +102,9 @@ Try_02:
 
 void Design(void)
 {
-    printf("\n\n-------- ATM Banking Mangement System --------\n\n");
+    printf("\n\n\t************************************\n\
+        *   ATM Banking Mangement System   *\n\
+        ************************************\n\n");
     printf("\t 1.Create Account\n");
     printf("\t 2.Cash Deposit\n");
     printf("\t 3.Cash Withdrawal\n");
